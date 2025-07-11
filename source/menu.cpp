@@ -26,8 +26,7 @@ void print_main_menu()
 {
     cout << "|---------------------------------------------|\n";
     cout << "|       [ 1 ] - generate your image           |\n";
-    cout << "|       [ 2 ] - load an image                 |\n";
-    cout << "|       [ 3 ] - exit                          |\n";
+    cout << "|       [ 2 ] - exit                          |\n";
     cout << "|---------------------------------------------|\n";
     cout <<"choice your option :";
 }
@@ -43,4 +42,13 @@ void gen_image_menu()
     cout << "|       [ 6 ] - draw a circle                 |\n";
     cout << "|---------------------------------------------|\n";
     cout <<"choice your option :";
+}
+
+void full_or_empty()
+{
+    cout << "|---------------------------------------------|\n";
+    cout << "|       [ 1 ] - full drawing                  |\n";
+    cout << "|       [ 2 ] - hollow drawing                |\n";
+    cout << "|---------------------------------------------|\n";
+    cout << "choice your option :";
 }

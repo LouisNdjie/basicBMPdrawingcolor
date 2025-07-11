@@ -49,5 +49,9 @@ void draw_square(Matrix_Color pixel[], Matrix_Color square_color, Point first_po
 void draw_rectangle(Matrix_Color pixel[], Matrix_Color rectangle_color, Point position, int longueur, int largeur, int width, int height);
 void draw_triangle(Matrix_Color pixel[], Matrix_Color triangle_color,Point pos, int hauteur,int width, int height);
 void draw_circle(Matrix_Color pixel[], Matrix_Color circle_color, Point center, int rayon, int width, int height);
+void draw_hollow_square(Matrix_Color pixel[], Matrix_Color hollow_square_color, Point hollow_square_position, int hollow_square_size, int width, int height);
+void draw_hollow_rectangle(Matrix_Color pixel[], Matrix_Color hollow_rectangle_color, Point hollow_rectangle_position, int hollow_rectangle_longueur, int hollow_rectangle_largeur, int width, int height);
+void draw_hollow_triangle(Matrix_Color pixel[], Matrix_Color hollow_triangle_color,Point hollow_triangle_pos, int hollow_triangle_hauteur,int width, int height);
+void draw_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height);
 int readInt();
 #endif

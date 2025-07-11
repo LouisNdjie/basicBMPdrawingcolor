@@ -169,3 +169,150 @@ int readInt() {
         }
     }
 }
+// ---------------------------------------------------------------------------------------------------------
+void draw_hollow_square(Matrix_Color pixel[], Matrix_Color hollow_square_color, Point hollow_square_position, int hollow_square_size, int width, int height)
+{
+    if(hollow_square_position.x < width && hollow_square_position.y < height)
+    {
+       for(int i = hollow_square_position.x; i < hollow_square_size+hollow_square_position.x; i++)
+       {
+            if(hollow_square_position.y < height && i < width)
+            {
+                pixel[hollow_square_position.y * width+i] = hollow_square_color;
+            }
+            
+            if(hollow_square_position.y+hollow_square_size-1< height && i < width)
+            {
+                pixel[(hollow_square_position.y+hollow_square_size-1) * width+i] = hollow_square_color;
+            }
+        }
+
+
+       for(int i = hollow_square_position.y; i < hollow_square_size+hollow_square_position.y; i++)
+        {
+            if(hollow_square_position.x< width && i < height)
+            {
+                pixel[i* width+hollow_square_position.x] = hollow_square_color;
+            }
+
+            if(hollow_square_position.x+hollow_square_size-1< width && i < height)
+            {
+                pixel[i* width+(hollow_square_position.x + hollow_square_size-1)] = hollow_square_color;
+            }
+       }
+       
+    }else
+    {
+        std::cout << "ce carre ne pourra pas etre represente";
+    }
+}
+// ---------------------------------------------------------------------------------------------------------
+void draw_hollow_rectangle(Matrix_Color pixel[], Matrix_Color hollow_rectangle_color, Point hollow_rectangle_position, int hollow_rectangle_longueur, int hollow_rectangle_largeur, int width, int height)
+{
+    if(hollow_rectangle_position.x < width && hollow_rectangle_position.y < height)
+    {
+        for(int i = hollow_rectangle_position.x; i < hollow_rectangle_longueur+hollow_rectangle_position.x; i++)
+       {
+            if(hollow_rectangle_position.y < height && i < width)
+            {
+                pixel[hollow_rectangle_position.y * width+i] = hollow_rectangle_color;
+            }
+            
+            if(hollow_rectangle_position.y+hollow_rectangle_largeur-1< height && i < width)
+            {
+                pixel[(hollow_rectangle_position.y+hollow_rectangle_largeur-1) * width+i] = hollow_rectangle_color;
+            }
+        }
+
+
+       for(int i = hollow_rectangle_position.y; i < hollow_rectangle_largeur+hollow_rectangle_position.y; i++)
+        {
+            if(hollow_rectangle_position.x< width && i < height)
+            {
+                pixel[i* width+hollow_rectangle_position.x] = hollow_rectangle_color;
+            }
+
+            if(hollow_rectangle_position.x+hollow_rectangle_longueur-1< width && i < height)
+            {
+                pixel[i* width+(hollow_rectangle_position.x + hollow_rectangle_longueur-1)] = hollow_rectangle_color;
+            }
+       }
+    }else
+    {
+        std::cout << "ce rectangle ne pourra pas etre represente";    
+    }
+       
+}
+// ---------------------------------------------------------------------------------------------------------
+void draw_hollow_triangle(Matrix_Color pixel[], Matrix_Color hollow_triangle_color,Point hollow_triangle_pos, int hollow_triangle_hauteur,int width, int height)
+{
+    if(hollow_triangle_pos.x < width && hollow_triangle_pos.y < height)
+    {
+        for (int i = 0; i < hollow_triangle_hauteur; i++) {
+        int y = hollow_triangle_pos.y - i;
+        if (y < 0 || y >= height) continue;  
+        
+        int startX = hollow_triangle_pos.x + (hollow_triangle_hauteur - i - 1);
+        
+            if (i == 0) {
+                if (startX >= 0 && startX < width) {
+                    pixel[y * width + startX] = hollow_triangle_color; // Point supérieur
+                }
+            } else {
+                int leftX = startX;
+                int rightX = startX + 2 * i;
+                if (leftX >= 0 && leftX < width) {
+                    pixel[y * width + leftX] = hollow_triangle_color; 
+                }
+                if (rightX >= 0 && rightX < width) {
+                    pixel[y * width + rightX] = hollow_triangle_color; 
+                }
+            }
+
+            int base = hollow_triangle_pos.y - hollow_triangle_hauteur+1;
+            if(base >= 0 && base < height)
+            {
+                int debut_base = hollow_triangle_pos.x;
+                int fin_base = hollow_triangle_pos.x + 2 * (hollow_triangle_hauteur-1);
+                for(int j = debut_base; j <= fin_base; j++)
+                {
+                    if(j > 0 && j < width)
+                    {
+                        pixel[base*width+j] = hollow_triangle_color;
+                    }
+                }
+            }
+        }
+    }else
+    {
+        std::cout << "ce triangle ne pourra pas etre represente";    
+    }
+
+}
+// ---------------------------------------------------------------------------------------------------------
+void draw_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height)
+{
+    if(center.x < width && center.y < height && rayon < width)
+    {
+        int bas_circle = center.y - rayon;
+        int haut_circle = center.y + rayon;
+        int gauche_circle = center.x - rayon;
+        int droite_circle = center.x + rayon;
+
+        for(int y = bas_circle; y <= haut_circle; y++)
+        {
+          for(int x = gauche_circle; x <= droite_circle; x++)
+          {
+              int compo_x = x-center.x;
+              int compo_y = y-center.y;
+
+              int position =(compo_x * compo_x) + (compo_y * compo_y);
+
+              if(position == (rayon * rayon))
+              {
+                  pixel[y*width+x] = circle_color;
+              }
+          }
+        }
+    } 
+}
