@@ -52,6 +52,6 @@ void draw_circle(Matrix_Color pixel[], Matrix_Color circle_color, Point center, 
 void draw_hollow_square(Matrix_Color pixel[], Matrix_Color hollow_square_color, Point hollow_square_position, int hollow_square_size, int width, int height);
 void draw_hollow_rectangle(Matrix_Color pixel[], Matrix_Color hollow_rectangle_color, Point hollow_rectangle_position, int hollow_rectangle_longueur, int hollow_rectangle_largeur, int width, int height);
 void draw_hollow_triangle(Matrix_Color pixel[], Matrix_Color hollow_triangle_color,Point hollow_triangle_pos, int hollow_triangle_hauteur,int width, int height);
-void draw_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height);
+void draw_hollow_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height);
 int readInt();
 #endif

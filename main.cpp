@@ -303,7 +303,8 @@ int main(void)
                             break;
                         } //dessiner le triangle
                         
-                        case 6: 
+                        case 6:
+                        {
                             int typeOfCircle = 1;
                             full_or_empty();
                             typeOfCircle = readInt();
@@ -311,30 +312,29 @@ int main(void)
                             switch(typeOfCircle)
                             {
                                 case 1: //cercle plein
+
                                     Matrix_Color circle_color;
                                     Point center; 
                                     int rayon;
-
                                     cout << "entrez les coordonnees du point de positionnement du centre du cercle\n abscisse :";
                                     center.x = readInt();
                                     cout << "ordonne :";
                                     center.y = readInt();
-
                                     cout << "entrez les nuances de couleurs du triangle\n rouge [0 ~ 255] :";
                                     circle_color.red = readInt();
                                     cout << "vert [0 ~ 255] :";
                                     circle_color.green = readInt();
                                     cout << " bleu [0 ~ 255] : ";
                                     circle_color.blue = readInt();
-
                                     cout << "entrez le taille du rayon\nrayon :";
                                     rayon = readInt();
-
                                     draw_circle(pixel, circle_color, center, rayon, width, height);
 
+                           
                                     break;
 
                                 case 2: // cercle vide
+
                                     Matrix_Color hollow_circle_color;
                                     Point hollow_circle_center; 
                                     int hollow_circle_rayon;
@@ -354,14 +354,14 @@ int main(void)
                                     cout << "entrez le taille du rayon\nrayon :";
                                     hollow_circle_rayon = readInt();
 
-                                    draw_circle(pixel, hollow_circle_color, hollow_circle_center, hollow_circle_rayon, width, height);
+                                    draw_hollow_circle(pixel, hollow_circle_color, hollow_circle_center, hollow_circle_rayon, width, height);
 
                                     break;
                             }
                             break;
-                        } //dessiner le cercle
-                            
+                        } //dessiner le cercle                        
                     }
+
                     cout << "voulez-vous encore ajoutez une figure [Y-N] :";
                     cin >> ajouter;
                     if(ajouter == 'N')

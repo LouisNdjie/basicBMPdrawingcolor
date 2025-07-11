@@ -290,29 +290,26 @@ void draw_hollow_triangle(Matrix_Color pixel[], Matrix_Color hollow_triangle_col
 
 }
 // ---------------------------------------------------------------------------------------------------------
-void draw_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height)
+void draw_hollow_circle(Matrix_Color pixel[], Matrix_Color hollow_circle_color, Point hollow_circle_center, int hollow_circle_rayon, int width, int height)
 {
-    if(center.x < width && center.y < height && rayon < width)
-    {
-        int bas_circle = center.y - rayon;
-        int haut_circle = center.y + rayon;
-        int gauche_circle = center.x - rayon;
-        int droite_circle = center.x + rayon;
+if (hollow_circle_center.x < width && hollow_circle_center.y < height && hollow_circle_rayon < width) {
+    int bas_circle = hollow_circle_center.y - hollow_circle_rayon;
+    int haut_circle = hollow_circle_center.y + hollow_circle_rayon;
+    int gauche_circle = hollow_circle_center.x - hollow_circle_rayon;
+    int droite_circle = hollow_circle_center.x + hollow_circle_rayon;
 
-        for(int y = bas_circle; y <= haut_circle; y++)
-        {
-          for(int x = gauche_circle; x <= droite_circle; x++)
-          {
-              int compo_x = x-center.x;
-              int compo_y = y-center.y;
+    for (int y = bas_circle; y <= haut_circle; y++) {
+        for (int x = gauche_circle; x <= droite_circle; x++) {
+            int compo_x = x - hollow_circle_center.x;
+            int compo_y = y - hollow_circle_center.y;
 
-              int position =(compo_x * compo_x) + (compo_y * compo_y);
+            int position = (compo_x * compo_x) + (compo_y * compo_y);
 
-              if(position == (rayon * rayon))
-              {
-                  pixel[y*width+x] = circle_color;
-              }
-          }
+            if (position >= hollow_circle_rayon * hollow_circle_rayon- 1 && position <= hollow_circle_rayon * hollow_circle_rayon + 1) {
+                pixel[y * width + x] = hollow_circle_color; 
+            }
         }
-    } 
+    }
+}
+ 
 }
